@@ -127,17 +127,17 @@ input[type=text], input[type=tel] {
     outline: none;
 }
 
-input[type=text]:focus, input[type=tel]:focus, input[type=date]:focus {
-    border: 1px solid #555;
-}
-
-input[type=date] {
+input[type=date], input[type=number] {
     padding: 8px 12px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
+}
+
+input[type=text]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=number]:focus {
+    border: 1px solid #555;
 }
 
 input[type=submit] {
@@ -216,33 +216,33 @@ input[type=submit]:hover {
               <form>
                 <div class="column1">
                   <label for="firstname">first name:</label><br>
-                  <input type="text" name="firstname"><br>
+                  <input type="text" name="firstname" id="firstname"><br>
                   <label for="lastname">last name:</label><br>
-                  <input type="text" name="lastname"><br>
+                  <input type="text" name="lastname" id="lastname"><br>
                   <label for="dob">date of birth:</label><br>
-                  <input type="date" name="dob"><br>
+                  <input type="date" name="dob" id="dob"><br>
                   <label for="gender">gender:</label><br>
-                  <input type="radio" name="gender" value="male" checked> male<br>
-                  <input type="radio" name="gender" value="female"> female<br>
-                  <input type="radio" name="gender" value="other"> other<br>
+                  <input type="radio" name="gender" id="male" value="male" checked> male<br>
+                  <input type="radio" name="gender" id="female" value="female"> female<br>
+                  <input type="radio" name="gender" id ="other" value="other"> other<br>
                   <label for="phonenumber">phone number:</label><br>
-                  <input type="tel" name="phonenumber"><br>
+                  <input type="tel" name="phonenumber" id="phonenumber"><br>
                   <label for="email">email:</label><br>
-                  <input type="text" name="email"><br>
+                  <input type="text" name="email" id="email"><br>
                   <input type="submit" value="submit">
                 </div>
 
                 <div class="column2">
                   <label for="country">country:</label><br>
-                  <input type="text" name="country"><br>
+                  <input type="text" name="country" id="country"><br>
                   <label for="address">address:</label><br>
-                  <input type="text" name="address"><br>
+                  <input type="text" name="address" id="address"><br>
                   <label for="city">city:</label><br>
-                  <input type="text" name="city"><br>
+                  <input type="text" name="city" id="city"><br>
                   <label for="state">state:</label><br>
-                  <input type="text" name="state"><br>
+                  <input type="text" name="state" id="state"><br>
                   <label for="zipcode">zip code:</label><br>
-                  <input type="text" name="zipcode"><br>
+                  <input type="text" name="zipcode" id="zipcode"><br>
                 </div>
               </form>
             </p>
@@ -255,21 +255,41 @@ input[type=submit]:hover {
 
           <button class="accordion">education</button>
           <div class="panel">
-            <p>school, degree, graduation date, gpa</p>
+            <div class="column1">
+              <label for="university">current university:</label><br>
+              <input type="text" name="university" id="university"><br>
+              <label for="degree">degree you are currently pursuing:</label><br>
+              <input type="text" name="degree" id="degree"><br>
+              <label for="graddate">expected graduation date:</label><br>
+              <input type="date" name="graddate" id="graddate"><br>
+              <label for="gpa">current gpa (on 4.0 scale):</label><br>
+              <input type="number" min="0" max="4" name="gpa" id="gpa"><br>
+              <input type="submit" value="submit">
+            </div>
           </div>
 
           <button class="accordion">resume</button>
           <div class="panel">
             <p>
-              <label for="resume">Resume:</label><br>
-              <input type="file" name="resume"/><br>
+              <label for="resume">Resume (.doc, .docx, .pdf, or .txt):</label><br>
+              <input type="file" id="resume" name="resume" accept=".doc, .docx, .pdf, .txt"/><br>
             </p>
             <input type="submit" value="submit">
           </div>
 
           <button class="accordion">websites</button>
           <div class="panel">
-            <p>linkedin, github, add your own</p>
+            <p>
+              <div class="column1">
+                <label for="linkedin">linkedin:</label><br>
+                <input type="text" name="linkedin" id="linkedin"><br>
+                <label for="github">github:</label><br>
+                <input type="text" name="github" id="github"><br>
+                <label for="personalwebsite">personal website:</label><br>
+                <input type="text" name="personalwebsite" id="personalwebsite"><br>
+                <input type="submit" value="submit">
+              </div>
+            </p>
           </div>
       </div>
     </div>

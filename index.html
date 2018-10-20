@@ -115,7 +115,7 @@ body {
     transition: max-height 0.2s ease-out;
 }
 
-input[type=text] {
+input[type=text], input[type=tel] {
     width: 80%;
     padding: 8px 12px;
     margin: 8px 0;
@@ -125,7 +125,7 @@ input[type=text] {
     outline: none;
 }
 
-input[type=text]:focus {
+input[type=text]:focus, input[type=tel]:focus, input[type=date]:focus {
     border: 1px solid #555;
 }
 
@@ -138,10 +138,6 @@ input[type=date] {
     outline: none;
 }
 
-input[type=date]:focus {
-    border: 1px solid #555;
-}
-
 input[type=submit] {
     background-color: #4CAF50;
     border: none;
@@ -149,9 +145,8 @@ input[type=submit] {
     color: white;
     padding: 12px 24px;
     text-decoration: none;
-    margin: 4px 2px;
+    margin: 4px 2px 8px;
     cursor: pointer;
-    float: right;
 }
 
 input[type=submit]:hover {
@@ -210,55 +205,67 @@ input[type=submit]:hover {
     </div>
 
     <div class="centered">
-    <div id="commonapp" class="tabcontent">
-      <h3>commonapp</h3>
-      <p>here's the application that is common for all internships</p>
-      <button class="accordion">profile</button>
-        <div class="panel">
-          <p>
-          <form>
-            <div class="column1">
-            first name:<br>
-            <input type="text" name="firstname"><br>
-            last name:<br>
-            <input type="text" name="lastname"><br>
-            date of birth:<br>
-            <input type="date" name="dob">
-            </div>
+      <div id="commonapp" class="tabcontent">
+        <h3>commonapp</h3>
+        <p>here's the application that is common for all internships</p>
+        <button class="accordion">profile</button>
+          <div class="panel">
+            <p>
+              <form>
+                <div class="column1">
+                  first name:<br>
+                  <input type="text" name="firstname"><br>
+                  last name:<br>
+                  <input type="text" name="lastname"><br>
+                  date of birth:<br>
+                  <input type="date" name="dob"><br>
+                  gender:<br>
+                  <input type="radio" name="gender" value="male" checked> male<br>
+                  <input type="radio" name="gender" value="female"> female<br>
+                  <input type="radio" name="gender" value="other"> other<br>
+                  phone number:<br>
+                  <input type="tel" name="phonenumber"><br>
+                  email:<br>
+                  <input type="text" name="email"><br>
+                  <input type="submit" value="submit">
+                </div>
 
-            <div class="column2">
-              gender:<br>
-              <input type="radio" name="gender" value="male" checked> male<br>
-              <input type="radio" name="gender" value="female"> female<br>
-              <input type="radio" name="gender" value="other"> other<br>
-            </div>
+                <div class="column2">
+                  country:<br>
+                  <input type="text" name="country"><br>
+                  address:<br>
+                  <input type="text" name="address"><br>
+                  city:<br>
+                  <input type="text" name="city"><br>
+                  state:<br>
+                  <input type="text" name="state"><br>
+                  zip code:<br>
+                  <input type="text" name="zipcode"><br>
+                </div>
+              </form>
+            </p>
+          </div>
 
-            <input type="submit" value="submit">
-          </form>
-          </p>
-          <p>name, age, address, contact info</p>
-        </div>
+          <button class="accordion">experience</button>
+          <div class="panel">
+            <p>you can add your previous experience here</p>
+          </div>
 
-        <button class="accordion">experience</button>
-        <div class="panel">
-          <p>you can add your previous experience here</p>
-        </div>
+          <button class="accordion">education</button>
+          <div class="panel">
+            <p>school, degree, graduation date, gpa</p>
+          </div>
 
-        <button class="accordion">education</button>
-        <div class="panel">
-          <p>school, degree, graduation date, gpa</p>
-        </div>
+          <button class="accordion">resume</button>
+          <div class="panel">
+            <p>resume, cover letter</p>
+          </div>
 
-        <button class="accordion">resume</button>
-        <div class="panel">
-          <p>resume, cover letter</p>
-        </div>
-
-        <button class="accordion">websites</button>
-        <div class="panel">
-          <p>linkedin, github, add your own</p>
-        </div>
-    </div>
+          <button class="accordion">websites</button>
+          <div class="panel">
+            <p>linkedin, github, add your own</p>
+          </div>
+      </div>
     </div>
 
     <div id="companysearch" class="tabcontent">

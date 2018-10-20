@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Fredericka+the+Great|Josefin+Slab');
-@import url('https://fonts.googleapis.com/css?family=Quicksand:300');
 @import url('https://fonts.googleapis.com/css?family=Pacifico'); /*header*/
 @import url('https://fonts.googleapis.com/css?family=KoHo'); /*body*/
 
@@ -13,13 +9,13 @@ body {
     margin-top: 1em;
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Pacifico', cursive;
     text-align: center;
 }
 
 h3 {
-    color: #9DE79C;
+    color: rgb(78, 218, 97);
     text-decoration: underline;
 }
 
@@ -62,7 +58,8 @@ a {
 }
 
 #fancy {
-    color: rgb(105, 201, 230);
+    /*color: rgb(105, 201, 230);*/
+    color:  rgb(82, 240, 103)
 }
 
 #features {

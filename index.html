@@ -76,7 +76,7 @@ body {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 60%;
+    width: 100%;
     text-align: left;
     border: 1px solid #ccc;
     outline: none;
@@ -109,9 +109,81 @@ body {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
+
+input[type=text] {
+    width: 80%;
+    padding: 8px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 1px solid #555;
+}
+
+input[type=date] {
+    padding: 8px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type=date]:focus {
+    border: 1px solid #555;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.centered {
+    margin: 0 auto;
+    width: 60%
+}
+
+.column1 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+.column2 {
+    float: right;
+    width: 50%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 </style>
 </head>
 <body>
+    <!-- Add icon library -->
+    <!-- https://fontawesome.com/v4.7.0/icons/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <img src="logo.png">
 
     <div class="tab">
@@ -132,11 +204,33 @@ body {
       <p>here's a list of companies i want to apply for</p>
     </div>
 
+    <div class="centered">
     <div id="commonapp" class="tabcontent">
       <h3>commonapp</h3>
       <p>here's the application that is common for all internships</p>
       <button class="accordion">profile</button>
         <div class="panel">
+          <p>
+          <form>
+            <div class="column1">
+            first name:<br>
+            <input type="text" name="firstname"><br>
+            last name:<br>
+            <input type="text" name="lastname"><br>
+            date of birth:<br>
+            <input type="date" name="dob">
+            </div>
+
+            <div class="column2">
+              gender:<br>
+              <input type="radio" name="gender" value="male" checked> male<br>
+              <input type="radio" name="gender" value="female"> female<br>
+              <input type="radio" name="gender" value="other"> other<br>
+            </div>
+
+            <input type="submit" value="submit">
+          </form>
+          </p>
           <p>name, age, address, contact info</p>
         </div>
 
@@ -159,6 +253,7 @@ body {
         <div class="panel">
           <p>linkedin, github, add your own</p>
         </div>
+    </div>
     </div>
 
     <div id="companysearch" class="tabcontent">

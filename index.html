@@ -39,17 +39,21 @@ body {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    width: 100%;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
     background-color: inherit;
-    float: left;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
+}
+
+.tabcontainer {
+    text-align: center;
 }
 
 /* Change background color of buttons on hover */
@@ -65,7 +69,8 @@ body {
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 12px;
+    background-color: #fff;
+    padding: 12px;
     border: 1px solid #ccc;
     border-top: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
@@ -242,11 +247,13 @@ input[type=submit]:hover {
     <h1 style="font-size: 3em;"><img src="ship.png" alt="internboat" style="width:5%;height:5%;">intern<span id="fancy">boat</span></h1>
 
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">home</button>
-      <button class="tablinks" onclick="openTab(event, 'mycompanies')">my companies</button>
-      <button class="tablinks" onclick="openTab(event, 'commonapp')">commonapp</button>
-      <button class="tablinks" onclick="openTab(event, 'companysearch')">company search</button>
-      <button class="tablinks" onclick="openTab(event, 'about')">about</button>
+      <div class="tabcontainer">
+        <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">home</button>
+        <button class="tablinks" onclick="openTab(event, 'mycompanies')">my companies</button>
+        <button class="tablinks" onclick="openTab(event, 'commonapp')">commonapp</button>
+        <button class="tablinks" onclick="openTab(event, 'companysearch')">company search</button>
+        <button class="tablinks" onclick="openTab(event, 'about')">about</button>
+      </div>
     </div>
 
     <div id="home" class="tabcontent">
@@ -414,6 +421,8 @@ input[type=submit]:hover {
     <div id="companysearch" class="tabcontent">
       <h3>company search</h3>
       <p>here's where i look for companies i want to apply for</p>
+      <input type="text" placeholder="Search companies by name">
+      <button type="submit"><i class="fa fa-search"></i></button>
     </div>
 
     <div id="about" class="tabcontent">

@@ -69,6 +69,46 @@ body {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 60%;
+    text-align: left;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.activeaccordion, .accordion:hover {
+    background-color: #ccc;
+}
+
+/* Add a + or - sign to show if the panel is open */
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.activeaccordion:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
 </style>
 </head>
 <body>
@@ -95,6 +135,30 @@ body {
     <div id="commonapp" class="tabcontent">
       <h3>commonapp</h3>
       <p>here's the application that is common for all internships</p>
+      <button class="accordion">profile</button>
+        <div class="panel">
+          <p>name, age, address, contact info</p>
+        </div>
+
+        <button class="accordion">experience</button>
+        <div class="panel">
+          <p>you can add your previous experience here</p>
+        </div>
+
+        <button class="accordion">education</button>
+        <div class="panel">
+          <p>school, degree, graduation date, gpa</p>
+        </div>
+
+        <button class="accordion">resume</button>
+        <div class="panel">
+          <p>resume, cover letter</p>
+        </div>
+
+        <button class="accordion">websites</button>
+        <div class="panel">
+          <p>linkedin, github, add your own</p>
+        </div>
     </div>
 
     <div id="companysearch" class="tabcontent">
@@ -130,6 +194,28 @@ body {
         // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
+    }
+
+    // sets up the accordion for commonapp page
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        if(!this.classList.contains("activeaccordion")){
+          for (i = 0; i < acc.length; i++) {
+      	    acc[i].classList.remove("activeaccordion");
+            acc[i].nextElementSibling.style.maxHeight = null;
+          }
+        }
+        this.classList.toggle("activeaccordion");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
     }
     </script>
 </body>

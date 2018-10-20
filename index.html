@@ -69,6 +69,8 @@ body {
     border: 1px solid #ccc;
     border-top: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    margin: 0 auto;
+    width: 60%
 }
 
 /* Go from zero to full opacity */
@@ -155,11 +157,6 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-.centered {
-    margin: 0 auto;
-    width: 60%
-}
-
 .column1 {
     float: left;
     width: 50%;
@@ -221,7 +218,7 @@ input[type=submit]:hover {
 .jobs {
     margin: 8px 0;
     padding: 6px 12px;
-    width: 90%
+    width: 100%
 }
 
 /* Style the job content */
@@ -232,7 +229,7 @@ input[type=submit]:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     animation: fadeEffect 1s;
-    width: 40%
+    width: 90%
 }
 </style>
 </head>
@@ -262,159 +259,156 @@ input[type=submit]:hover {
       <p>here's a list of companies i want to apply for</p>
     </div>
 
-    <div class="centered">
-      <div id="commonapp" class="tabcontent">
-        <h3>commonapp</h3>
-        <p>here's the application that is common for all internships</p>
-        <button class="accordion">profile</button>
-          <div class="panel">
-            <p>
-              <form>
-                <div class="column1">
-                  <label for="firstname">first name:</label><br>
-                  <input type="text" name="firstname" id="firstname"><br>
-                  <label for="lastname">last name:</label><br>
-                  <input type="text" name="lastname" id="lastname"><br>
-                  <label for="dob">date of birth:</label><br>
-                  <input type="date" name="dob" id="dob"><br>
-                  <label for="gender">gender:</label><br>
-                  <input type="radio" name="gender" id="male" value="male" checked> male<br>
-                  <input type="radio" name="gender" id="female" value="female"> female<br>
-                  <input type="radio" name="gender" id ="other" value="other"> other<br>
-                  <label for="phonenumber">phone number:</label><br>
-                  <input type="tel" name="phonenumber" id="phonenumber"><br>
-                  <label for="email">email:</label><br>
-                  <input type="text" name="email" id="email"><br>
-                  <input type="submit" value="submit">
-                </div>
-
-                <div class="column2">
-                  <label for="country">country:</label><br>
-                  <input type="text" name="country" id="country"><br>
-                  <label for="address">address:</label><br>
-                  <input type="text" name="address" id="address"><br>
-                  <label for="city">city:</label><br>
-                  <input type="text" name="city" id="city"><br>
-                  <label for="state">state:</label><br>
-                  <input type="text" name="state" id="state"><br>
-                  <label for="zipcode">zip code:</label><br>
-                  <input type="text" name="zipcode" id="zipcode"><br>
-                </div>
-              </form>
-            </p>
-          </div>
-
-          <button class="accordion" id="experience">experience</button>
-          <div class="panel">
-            <div class="jobs" id="jobs">
-              <div class="jobcontent">
-                <p><b>job title</b></p>
-                <p>employer</p>
-                <p>start date - end date </p>
-              </div>
-            </div>
-
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn">add new</button>
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>
-                  <label for="jobtitle">job title:</label><br>
-                  <input type="text" name="jobtitle" id="jobtitle"><br>
-                  <label for="employer">employer:</label><br>
-                  <input type="text" name="employer" id="employer"><br>
-                  <label for="startdate">start date:</label><br>
-                  <input type="date" name="startdate" id="startdate"><br>
-                  <label for="enddate">end date:</label><br>
-                  <input type="date" name="enddate" id="enddate">
-                  <input type="checkbox" name="working" value="working">i am currently working here<br>
-                  <!--<input type="submit" value="submit" onclick="makeJob(document.getElementById('jobtitle').value, document.getElementById('employer').value, document.getElementById('startdate').value, document.getElementById('enddate').value, document.getElementById('working').checked)">-->
-                  <input type="submit" value="submit" onclick="test()">
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <button class="accordion">education</button>
-          <div class="panel">
-            <div class="column1">
-              <label for="university">current university:</label><br>
-              <input type="text" name="university" id="university"><br>
-              <label for="degree">degree you are currently pursuing:</label><br>
-              <input type="text" name="degree" id="degree"><br>
-              <label for="graddate">expected graduation date:</label><br>
-              <input type="date" name="graddate" id="graddate"><br>
-              <label for="gpa">current gpa (on 4.0 scale):</label><br>
-              <input type="number" min="0" max="4" name="gpa" id="gpa"><br>
-              <input type="submit" value="submit">
-            </div>
-          </div>
-
-          <button class="accordion">resume</button>
-          <div class="panel">
-            <p>
-              <label for="resume">resume (.doc, .docx, .pdf, or .txt):</label><br>
-              <input type="file" id="resume" name="resume" accept=".doc, .docx, .pdf, .txt"/><br>
-            </p>
-            <input type="submit" value="submit">
-          </div>
-
-          <button class="accordion">websites</button>
-          <div class="panel">
-            <p>
+    <div id="commonapp" class="tabcontent">
+      <h3>commonapp</h3>
+      <p>here's the application that is common for all internships</p>
+      <button class="accordion">profile</button>
+        <div class="panel">
+          <p>
+            <form>
               <div class="column1">
-                <label for="linkedin">linkedin:</label><br>
-                <input type="text" name="linkedin" id="linkedin"><br>
-                <label for="github">github:</label><br>
-                <input type="text" name="github" id="github"><br>
-                <label for="personalwebsite">personal website:</label><br>
-                <input type="text" name="personalwebsite" id="personalwebsite"><br>
+                <label for="firstname">first name:</label><br>
+                <input type="text" name="firstname" id="firstname" required><br>
+                <label for="lastname">last name:</label><br>
+                <input type="text" name="lastname" id="lastname" required><br>
+                <label for="dob">date of birth:</label><br>
+                <input type="date" name="dob" id="dob" required><br>
+                <label for="gender">gender:</label><br>
+                <input type="radio" name="gender" id="male" value="male" checked> male<br>
+                <input type="radio" name="gender" id="female" value="female"> female<br>
+                <input type="radio" name="gender" id ="other" value="other"> other<br>
+                <label for="phonenumber">phone number:</label><br>
+                <input type="tel" name="phonenumber" id="phonenumber" required><br>
+                <label for="email">email:</label><br>
+                <input type="text" name="email" id="email" required><br>
                 <input type="submit" value="submit">
               </div>
-            </p>
+
+              <div class="column2">
+                <label for="country">country:</label><br>
+                <input type="text" name="country" id="country" required><br>
+                <label for="address">address:</label><br>
+                <input type="text" name="address" id="address" required><br>
+                <label for="city">city:</label><br>
+                <input type="text" name="city" id="city" required><br>
+                <label for="state">state:</label><br>
+                <input type="text" name="state" id="state" required><br>
+                <label for="zipcode">zip code:</label><br>
+                <input type="text" name="zipcode" id="zipcode" required><br>
+              </div>
+            </form>
+          </p>
+        </div>
+
+        <button class="accordion" id="experience">experience</button>
+        <div class="panel">
+          <div class="jobs" id="jobs">
+            <div class="jobcontent">
+              <p><b>example job title</b></p>
+              <p>example employer</p>
+              <p>example start date</p>
+              <p>example end date</p>
+            </div>
           </div>
 
-          <button class="accordion">voluntary self-identification of disability</button>
-          <div class="panel">
-            <p><b>why are you being asked to complete this form?</b></p>
-            <p>because we do business with the government, we must reach out to, hire, and provide equal opportunity to qualified people with disabilities. to help us measure how well we are doing, we are asking you to tell us if you have a disability or if you ever had a disability. completing this form is voluntary, but we hope that you will choose to fill it out. if you are applying for a job, any answer you give will be kept private and will not be used against you in any way.</p>
-            <p>if you already work for us, your answer will not be used against you in any way. because a person may become disabled at any time, we are required to ask all of our employees to update their information every five years. you may voluntarily self-identify as having a disability on this form without fear of any punishment because you did not identify as having a disability earlier.
-            </p>
-            <p><b>how do i know if i have a disability?</b></p>
-            <p>you are considered to have a disability if you have a physical or mental impairment or medical condition that substantially limits a major life activity, or if you have a history or record of such an impairment or medical condition.</p>
-            <p>disabilities include, but are not limited to:<br>
-            • blindness<br>
-            • deafness<br>
-            • cancer<br>
-            • diabetes<br>
-            • epilepsy<br>
-            • autism<br>
-            • cerebral palsy<br>
-            • hiv/aids<br>
-            • schizophrenia<br>
-            • muscular dystrophy<br>
-            • bipolar disorder<br>
-            • major depression<br>
-            • multiple sclerosis (ms)<br>
-            • missing limbs or partially missing limbs<br>
-            • post-traumatic stress disorder (ptsd)<br>
-            • obsessive compulsive disorder<br>
-            • impairments requiring the use of a wheelchair<br>
-            • intellectual disability (previously called mental
-            retardation)</p>
-            <p><label for="disability">please check one of the boxes below:</label></p>
-            <p><input type="radio" name="disability" id="yesdisability" value="yes" checked> yes, i have a disability<br>
-            <input type="radio" name="disability" id="nodisability" value="no"> no, i don't have a disability<br>
-            <input type="radio" name="disability" id ="noanswerdisability" value="noanswer"> i don't wish to answer<br></p>
+          <!-- Trigger/Open The Modal -->
+          <p><button id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>  add new</button></p>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>
+                <label for="jobtitle">job title:</label><br>
+                <input type="text" name="jobtitle" id="jobtitle" required><br>
+                <label for="employer">employer:</label><br>
+                <input type="text" name="employer" id="employer" required><br>
+                <label for="startdate">start date:</label><br>
+                <input type="date" name="startdate" id="startdate" required><br>
+                <label for="enddate">end date:</label><br>
+                <input type="date" name="enddate" id="enddate" required>
+                <input type="submit" value="submit" onsubmit="makeJob('jobtitle', 'employer', 'startdate', 'enddate')">
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="accordion">education</button>
+        <div class="panel">
+          <div class="column1">
+            <label for="university">current university:</label><br>
+            <input type="text" name="university" id="university" required><br>
+            <label for="degree">degree you are currently pursuing:</label><br>
+            <input type="text" name="degree" id="degree" required><br>
+            <label for="graddate">expected graduation date:</label><br>
+            <input type="date" name="graddate" id="graddate" required><br>
+            <label for="gpa">current gpa (on 4.0 scale):</label><br>
+            <input type="number" min="0" max="4" name="gpa" id="gpa" required><br>
             <input type="submit" value="submit">
           </div>
-      </div>
+        </div>
+
+        <button class="accordion">resume</button>
+        <div class="panel">
+          <p>
+            <label for="resume">resume (.doc, .docx, .pdf, or .txt):</label><br>
+            <input type="file" id="resume" name="resume" accept=".doc, .docx, .pdf, .txt" required/><br>
+          </p>
+          <input type="submit" value="submit">
+        </div>
+
+        <button class="accordion">websites</button>
+        <div class="panel">
+          <p>
+            <div class="column1">
+              <label for="linkedin">linkedin:</label><br>
+              <input type="text" name="linkedin" id="linkedin"><br>
+              <label for="github">github:</label><br>
+              <input type="text" name="github" id="github"><br>
+              <label for="personalwebsite">personal website:</label><br>
+              <input type="text" name="personalwebsite" id="personalwebsite"><br>
+              <input type="submit" value="submit">
+            </div>
+          </p>
+        </div>
+
+        <button class="accordion">voluntary self-identification of disability</button>
+        <div class="panel">
+          <p><b>why are you being asked to complete this form?</b></p>
+          <p>because we do business with the government, we must reach out to, hire, and provide equal opportunity to qualified people with disabilities. to help us measure how well we are doing, we are asking you to tell us if you have a disability or if you ever had a disability. completing this form is voluntary, but we hope that you will choose to fill it out. if you are applying for a job, any answer you give will be kept private and will not be used against you in any way.</p>
+          <p>if you already work for us, your answer will not be used against you in any way. because a person may become disabled at any time, we are required to ask all of our employees to update their information every five years. you may voluntarily self-identify as having a disability on this form without fear of any punishment because you did not identify as having a disability earlier.
+          </p>
+          <p><b>how do i know if i have a disability?</b></p>
+          <p>you are considered to have a disability if you have a physical or mental impairment or medical condition that substantially limits a major life activity, or if you have a history or record of such an impairment or medical condition.</p>
+          <p>disabilities include, but are not limited to:<br>
+          • blindness<br>
+          • deafness<br>
+          • cancer<br>
+          • diabetes<br>
+          • epilepsy<br>
+          • autism<br>
+          • cerebral palsy<br>
+          • hiv/aids<br>
+          • schizophrenia<br>
+          • muscular dystrophy<br>
+          • bipolar disorder<br>
+          • major depression<br>
+          • multiple sclerosis (ms)<br>
+          • missing limbs or partially missing limbs<br>
+          • post-traumatic stress disorder (ptsd)<br>
+          • obsessive compulsive disorder<br>
+          • impairments requiring the use of a wheelchair<br>
+          • intellectual disability (previously called mental
+          retardation)</p>
+          <p><label for="disability">please check one of the boxes below:</label></p>
+          <p><input type="radio" name="disability" id="yesdisability" value="yes" checked> yes, i have a disability<br>
+          <input type="radio" name="disability" id="nodisability" value="no"> no, i don't have a disability<br>
+          <input type="radio" name="disability" id ="noanswerdisability" value="noanswer"> i don't wish to answer<br></p>
+          <input type="submit" value="submit">
+        </div>
     </div>
 
     <div id="companysearch" class="tabcontent">
@@ -500,41 +494,31 @@ input[type=submit]:hover {
         }
     }
 
-    // Setting up past jobs / experience
-    var jobs, jobtitle, employer, startdate, enddate;
-
-    // Show past jobs on experience page
-    /*function displayPastJobs() {
-      jobs = document.getElementsByClassName("jobcontent");
-      for (i = 0; i< jobs.length, i++) {
-        jobs[i].style.display = "block";
-      }
-    }*/
-
-    // Make job from user input
-    /*function makeJob(jobtitle, employer, start, end, working) {
-      var newJob = document.createElement("div");
-      newJob.setAttribute("class", "jobcontent");
-      var p = document.createElement('p');
-      p.textContent = jobtitle;
+    function makeJob(jobTitle, employer, startDate, endDate) {
+      var title = document.getElementById(jobTitle).value;  // add job title
+      var b = document.createElement("b");
+      b.appendChild(document.createTextNode(title));
+      var p = document.createElement("p");
+      p.appendChild(b);
+      var div = document.createElement("div");
       div.appendChild(p);
-      p.textContent = employer;
+      var emp = document.getElementById(employer).value;  // add employer
+      p = document.createElement("p");
+      p.appendChild(document.createTextNode(emp));
       div.appendChild(p);
-      p.textContent = start;
+      var sd = document.getElementById(startDate).value;  // add start date
+      p = document.createElement("p");
+      p.appendChild(document.createTextNode(sd));
       div.appendChild(p);
-      if (!working) {
-        p.textContent = end;
-      } else {
-        p.textContent = "currently working here";
-      }
+      var ed = document.getElementById(endDate).value;    // add end date
+      p = document.createElement("p");
+      p.appendChild(document.createTextNode(ed));
       div.appendChild(p);
-    }*/
-
-    function test() {
-      document.getElementById("jobs").innerHTML += "<div class='jobcontent'><p><b>jobTitle</b></p><p>new employer</p><p>newstart - newend</p></div>";
+      div.className = "jobcontent";
+      document.getElementById("jobs").innerHTML += div.outerHTML; // update html
+      document.getElementById("experience").click();  // refresh page
       document.getElementById("experience").click();
-      document.getElementById("experience").click();
-      modal.style.display = 'none';
+      modal.style.display = 'none'; // close modal
     }
     </script>
 </body>

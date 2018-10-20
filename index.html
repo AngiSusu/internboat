@@ -69,6 +69,7 @@ body {
 /* Style the tab content */
 .tabcontent {
     display: none;
+    overflow: hidden;
     background-color: #fff;
     padding: 12px;
     border: 1px solid #ccc;
@@ -76,6 +77,49 @@ body {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
     margin: 0 auto;
     width: 60%
+}
+
+/* Style the tab */
+.verticaltab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 30%;
+    height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.verticaltab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.verticaltab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.verticaltab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.verticaltabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 65%;
+    border-left: none;
+    height: 300px;
 }
 
 /* Go from zero to full opacity */
@@ -276,11 +320,41 @@ tr:nth-child(even) {
     <div id="home" class="tabcontent">
       <h3>home</h3>
       <p>welcome to internboat!</p>
+      <p><table>
+        <tr>
+          <th>company</th>
+          <th>deadline</th>
+          <th>application status</th>
+          <th>remove</th>
+        </tr>
+        <tr>
+          <td>microsoft</td>
+          <td>month/day</td>
+          <td>in progress</td>
+          <td><button type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+        </tr>
+        <tr>
+          <td>ncr</td>
+          <td>month/day</td>
+          <td>submitted</td>
+          <td><button type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+        </tr>
+      </table></p>
     </div>
 
     <div id="mycompanies" class="tabcontent">
       <h3>my companies</h3>
       <p>here's a list of companies i want to apply for</p>
+      <p><div class="verticaltab">
+        <button class="companytabs" onClick="openVerticalTab(event, 'microsoft')" id="verticalDefaultOpen">microsoft</button>
+        <button class="companytabs" onClick="openVerticalTab(event, 'ncr')">ncr</button>
+      </div></p>
+      <p><div id="microsoft" class="verticaltabcontent">
+        <p>microsoft application</p>
+      </div></p>
+      <p><div id="ncr" class="verticaltabcontent">
+        <p>ncr application</p>
+      </div></p>
     </div>
 
     <div id="commonapp" class="tabcontent">
@@ -367,11 +441,13 @@ tr:nth-child(even) {
             <input type="text" name="university" id="university" required><br>
             <label for="degree">degree you are currently pursuing:</label><br>
             <input type="text" name="degree" id="degree" required><br>
+            <input type="submit" value="submit">
+          </div>
+          <div class="column2">
             <label for="graddate">expected graduation date:</label><br>
             <input type="date" name="graddate" id="graddate" required><br>
             <label for="gpa">current gpa (on 4.0 scale):</label><br>
             <input type="number" min="0" max="4" name="gpa" id="gpa" required><br>
-            <input type="submit" value="submit">
           </div>
         </div>
 
@@ -380,6 +456,10 @@ tr:nth-child(even) {
           <p>
             <label for="resume">resume (.doc, .docx, .pdf, or .txt):</label><br>
             <input type="file" id="resume" name="resume" accept=".doc, .docx, .pdf, .txt" required/><br>
+          </p>
+          <p>
+            <label for="coverletter">cover letter (.doc, .docx, .pdf, or .txt):</label><br>
+            <input type="file" id="coverletter" name="coverletter" accept=".doc, .docx, .pdf, .txt"/><br>
           </p>
           <input type="submit" value="submit">
         </div>
@@ -392,9 +472,11 @@ tr:nth-child(even) {
               <input type="text" name="linkedin" id="linkedin"><br>
               <label for="github">github:</label><br>
               <input type="text" name="github" id="github"><br>
+              <input type="submit" value="submit">
+            </div>
+            <div class="column2">
               <label for="personalwebsite">personal website:</label><br>
               <input type="text" name="personalwebsite" id="personalwebsite"><br>
-              <input type="submit" value="submit">
             </div>
           </p>
         </div>
@@ -471,12 +553,14 @@ tr:nth-child(even) {
 
     <div id="about" class="tabcontent">
       <h3>about</h3>
-      <p>internboat is fun</p>
+      <p>do you HATE applying for internships but need a job? US TOOOOOO</p>
     </div>
 
     <script>
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
+    // Get the element with id="verticalDefaultOpen" and click on it
+    document.getElementById("verticalDefaultOpen").click();
 
     function openTab(evt, tabName) {
         // Declare all variables
@@ -490,6 +574,27 @@ tr:nth-child(even) {
 
         // Get all elements with class="tablinks" and remove the class "active"
         tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function openVerticalTab(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("verticaltabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("companytabs");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }

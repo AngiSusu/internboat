@@ -236,6 +236,23 @@ input[type=submit]:hover {
     animation: fadeEffect 1s;
     width: 90%
 }
+
+table {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 </style>
 </head>
 <body>
@@ -421,8 +438,35 @@ input[type=submit]:hover {
     <div id="companysearch" class="tabcontent">
       <h3>company search</h3>
       <p>here's where i look for companies i want to apply for</p>
-      <input type="text" placeholder="Search companies by name">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <p><input type="text" placeholder="search companies by name">
+      <button type="submit"><i class="fa fa-search"></i></button></p>
+      <p><table>
+        <tr>
+          <th><input type="checkbox" name="check" id="selectall" onclick="selectAll()"/>    &nbsp;   </th>
+          <th>company</th>
+          <th>location</th>
+          <th>website</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="check" id="sel1"/>    &nbsp;   </td>
+          <td>microsoft</td>
+          <td>redmond, wa</td>
+          <td><a href="https://www.microsoft.com/en-us">https://www.microsoft.com/en-us</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="check" id="sel2"/>    &nbsp;   </td>
+          <td>ncr</td>
+          <td>atlanta, ga</td>
+          <td><a href="https://www.ncr.com/">https://www.ncr.com/</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="check" id="sel3"/>    &nbsp;   </td>
+          <td>american express</td>
+          <td>new york city, ny</td>
+          <td><a href="https://www.americanexpress.com/">https://www.americanexpress.com/</a></td>
+        </tr>
+      </table></p>
+      <p><input type="submit" value="add"></p>
     </div>
 
     <div id="about" class="tabcontent">
@@ -528,6 +572,19 @@ input[type=submit]:hover {
       document.getElementById("experience").click();  // refresh page
       document.getElementById("experience").click();
       modal.style.display = 'none'; // close modal
+    }
+
+    function selectAll() {
+      var checkboxes = document.getElementsByName("check");
+      if (document.getElementById("selectall").checked) { // select all
+        for (i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].checked = true;
+        }
+      } else {  // deselect all
+        for (i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].checked = false;
+        }
+      }
     }
     </script>
 </body>

@@ -176,7 +176,6 @@ input[type=submit]:hover {
     display: table;
     clear: both;
 }
-
 </style>
 </head>
 <body>
@@ -213,33 +212,33 @@ input[type=submit]:hover {
             <p>
               <form>
                 <div class="column1">
-                  first name:<br>
+                  <label for="firstname">first name:</label><br>
                   <input type="text" name="firstname"><br>
-                  last name:<br>
+                  <label for="lastname">last name:</label><br>
                   <input type="text" name="lastname"><br>
-                  date of birth:<br>
+                  <label for="dob">date of birth:</label><br>
                   <input type="date" name="dob"><br>
-                  gender:<br>
+                  <label for="gender">gender:</label><br>
                   <input type="radio" name="gender" value="male" checked> male<br>
                   <input type="radio" name="gender" value="female"> female<br>
                   <input type="radio" name="gender" value="other"> other<br>
-                  phone number:<br>
+                  <label for="phonenumber">phone number:</label><br>
                   <input type="tel" name="phonenumber"><br>
-                  email:<br>
+                  <label for="email">email:</label><br>
                   <input type="text" name="email"><br>
                   <input type="submit" value="submit">
                 </div>
 
                 <div class="column2">
-                  country:<br>
+                  <label for="country">country:</label><br>
                   <input type="text" name="country"><br>
-                  address:<br>
+                  <label for="address">address:</label><br>
                   <input type="text" name="address"><br>
-                  city:<br>
+                  <label for="city">city:</label><br>
                   <input type="text" name="city"><br>
-                  state:<br>
+                  <label for="state">state:</label><br>
                   <input type="text" name="state"><br>
-                  zip code:<br>
+                  <label for="zipcode">zip code:</label><br>
                   <input type="text" name="zipcode"><br>
                 </div>
               </form>
@@ -258,7 +257,11 @@ input[type=submit]:hover {
 
           <button class="accordion">resume</button>
           <div class="panel">
-            <p>resume, cover letter</p>
+            <p>
+              <label for="resume">Resume:</label><br>
+              <input type="file" name="resume"/><br>
+            </p>
+            <input type="submit" value="submit">
           </div>
 
           <button class="accordion">websites</button>

@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
-        <script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    <script>
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyACU_H1W-iUxGaNJ1NjR3o2opbQN64NoCI",
@@ -13,17 +20,11 @@
             messagingSenderId: "901214580272"
         };
         firebase.initializeApp(config);
-        </script>
+    </script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
-        <script src="/__/firebase/5.5.5/firebase-app.js"></script>
-        <script src="/__/firebase/5.5.5/firebase-auth.js"></script>
-        <script src="/__/firebase/5.5.5/firebase-database.js"></script>
-        <script src="/__/firebase/5.5.5/firebase-storage.js"></script>
-        <script src="/__/firebase/5.5.5/firebase-messaging.js"></script>
-        <script src="/__/firebase/init.js"></script>
 
-        <script src="scripts/main.js"></script>
 </body>
 <style>
 body {

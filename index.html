@@ -31,33 +31,25 @@
   <body class="auth-false">
     <!-- Add icon library -->
     <!-- https://fontawesome.com/v4.7.0/icons/ -->
-
-
-
-    <!--CONTAINER-->
-    <div>
-    <header class="clearfix">
-      <div class="userAuth unauthenticated pull-right">
-        <span class="user-info">
-          <img src="./user.svg" alt="hiyyo" class="rounded-circle">
-        </span>
-        <button type="button" class="btn btn-info" id="logout">Logout</button>
-      </div>
-        </header>
-        <main class="authenticated">
-      <center>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">Add Contact</button>
-      </center>
-      <div id="contacts"></div>
-    </main>
-    </div>
-
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- title logo -->
+    <div class="titlelogo">
+      <h1 id="logo"><img src="ship.png" alt="internboat">intern<span id="fancy">boat</span></h1>
+    </div>
 
-    <h1 style="font-size: 3em;" id="logo"><img src="ship.png" alt="internboat" style="width:5%;height:5%;">intern<span id="fancy">boat</span></h1>
+    <!--CONTAINER-->
+    <div class="userinfo">
+      <p>welcome, username!</p>
+      <header class="clearfix">
+        <div class="userAuth unauthenticated pull-right">
+          <span class="user-info">
+            <img src="./user.svg" alt="user" class="rounded-circle">
+          </span>
+          <button type="button" class="prettybutton" id="logout">logout</button>
+        </div>
+      </header>
+    </div>
 
     <div class="tab">
       <div class="tabcontainer">

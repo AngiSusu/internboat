@@ -343,3 +343,30 @@ tr:nth-child(even) {
 ::-webkit-scrollbar-thumb:hover {
     background: #aaa;
 }
+
+.titlelogo {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.titlelogo h1 {
+    font-size: 3em;
+}
+
+.titlelogo img {
+    width: 1.8em;
+    height: 2em;
+}
+
+.userinfo {
+    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

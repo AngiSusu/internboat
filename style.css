@@ -9,6 +9,12 @@ body {
     margin-top: 1em;
 }
 
+.titlelogo {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
 h1, h2 {
     font-family: 'Pacifico', cursive;
     text-align: center;

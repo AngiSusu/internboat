@@ -79,7 +79,7 @@ body {
     width: 60%
 }
 
-/* Style the tab */
+/* Style the vertical tab */
 .verticaltab {
     float: left;
     border: 1px solid #ccc;
@@ -88,7 +88,7 @@ body {
     height: 400px;
 }
 
-/* Style the buttons that are used to open the tab content */
+/* Style the buttons that are used to open the vertical tab content */
 .verticaltab button {
     display: block;
     background-color: inherit;
@@ -112,7 +112,7 @@ body {
     background-color: #ccc;
 }
 
-/* Style the tab content */
+/* Style the vertical tab content */
 .verticaltabcontent {
     float: left;
     overflow-y:auto;
@@ -207,6 +207,36 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+.cancel {
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 4px 2px 8px;
+    cursor: pointer;
+}
+
+.cancel:hover {
+  background-color: #aaa;
+}
+
+.delete {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 4px 2px 8px;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: #45a049;
+}
+
 .column1 {
     float: left;
     width: 50%;
@@ -248,6 +278,16 @@ input[type=submit]:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Modal Content/Box */
+.confirm-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -332,15 +372,26 @@ tr:nth-child(even) {
           <td>microsoft</td>
           <td>month/day</td>
           <td>in progress</td>
-          <td><button type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+          <td><button type="button" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
         <tr>
           <td>ncr</td>
           <td>month/day</td>
           <td>submitted</td>
-          <td><button type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+          <td><button type="button" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
       </table></p>
+      <!-- The Modal -->
+      <div id="confirmmodal" class="modal">
+
+        <!-- Modal content -->
+        <div class="confirm-modal-content">
+          <h3><center>are you sure?</center></h3>
+          <p><center><button type="button" class="cancel" id="canceldelete">cancel</button>
+            <button type="button" class="delete" id="confirmdelete">delete</button>
+          </center></p>
+        </div>
+      </div>
     </div>
 
     <div id="mycompanies" class="tabcontent">
@@ -609,6 +660,21 @@ tr:nth-child(even) {
         evt.currentTarget.className += " active";
     }
 
+    // button from row to be deleted
+    var toBeDeleted;
+
+    // ask for confirmation to delete
+    function confirmDelete(btn) {
+      toBeDeleted = btn;
+      document.getElementById("confirmmodal").style.display = "block";
+    }
+
+    // delete row from table
+    function deleteRow(btn) {
+      var row = btn.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+    }
+
     // sets up the accordion for commonapp page
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -650,10 +716,27 @@ tr:nth-child(even) {
         modal.style.display = "none";
     }
 
+    var confirmModal = document.getElementById("confirmmodal");
+    var deleteButton = document.getElementById("confirmdelete");
+    var cancelButton = document.getElementById("canceldelete");
+
+    deleteButton.onclick = function() {
+      deleteRow(toBeDeleted);
+      confirmModal.style.display = "none";
+    }
+
+    // when the user clicks cancel, close the modal
+    cancelButton.onclick = function() {
+      confirmModal.style.display = "none";
+    }
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+        if (event.target == confirmModal) {
+            confirmModal.style.display = "none";
         }
     }
 

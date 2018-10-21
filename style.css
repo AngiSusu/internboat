@@ -44,9 +44,12 @@ h3 {
 }
 
 a {
-    color: #ffffff;
+  color: #4eda61;
 }
 
+a:hover {
+  color: #4CAF50;
+}
 
 #intro {
     font-size: 5em;

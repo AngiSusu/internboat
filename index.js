@@ -4,59 +4,77 @@ script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
+// clicking logo opens home tab
+document.getElementById("logo").onclick = function() {
+  document.getElementById("hometab").click();
+}
 
 // opening the default tabs
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-// Get the element with id="verticalDefaultOpen" and click on it
-document.getElementById("verticalDefaultOpen").click();
+// open home tab by default
+document.getElementById("hometab").click();
+// open microsoft tab by default
+document.getElementById("microsofttab").click();
 
 
 // for opening the main tabs
 function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
 
 // for opening the company tabs in "my companies"
 function openVerticalTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("verticaltabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+  // Get all elements with class="verticaltabcontent" and hide them
+  tabcontent = document.getElementsByClassName("verticaltabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("companytabs");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+  // Get all elements with class="companytabs" and remove the class "active"
+  tablinks = document.getElementsByClassName("companytabs");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
+
+// for going to company apps from dashboard
+var microsoftlink = document.getElementById("openmicrosoftapp");
+var ncrlink = document.getElementById("openncrapp");
+
+microsoftlink.onclick = function() {
+  document.getElementById("mycompaniestab").click();
+  document.getElementById("microsofttab").click();
+}
+
+ncrlink.onclick = function() {
+  document.getElementById("mycompaniestab").click();
+  document.getElementById("ncrtab").click();
+}
 
 // for deleting companies from dashboard
 // button from row to be deleted
@@ -94,12 +112,12 @@ cancelButton.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-    if (event.target == confirmModal) {
-        confirmModal.style.display = "none";
-    }
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+  if (event.target == confirmModal) {
+    confirmModal.style.display = "none";
+  }
 }
 
 
@@ -138,12 +156,12 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-    modal.style.display = "block";
+  modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 
 
@@ -197,3 +215,5 @@ function checkSelect(checkbox) {
     document.getElementById("selectall").checked = false;
   }
 }
+
+var addModal = document.getElementById("addmodal");

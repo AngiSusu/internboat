@@ -57,15 +57,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <h1 style="font-size: 3em;" onclick="openTab(event, 'home')"><img src="ship.png" alt="internboat" style="width:5%;height:5%;">intern<span id="fancy">boat</span></h1>
+    <h1 style="font-size: 3em;" id="logo"><img src="ship.png" alt="internboat" style="width:5%;height:5%;">intern<span id="fancy">boat</span></h1>
 
     <div class="tab">
       <div class="tabcontainer">
-        <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">home</button>
-        <button class="tablinks" onclick="openTab(event, 'mycompanies')">my companies</button>
-        <button class="tablinks" onclick="openTab(event, 'commonapp')">commonapp</button>
-        <button class="tablinks" onclick="openTab(event, 'companysearch')">company search</button>
-        <button class="tablinks" onclick="openTab(event, 'about')">about</button>
+        <button class="tablinks" id="hometab" onclick="openTab(event, 'home')">home</button>
+        <button class="tablinks" id="mycompaniestab" onclick="openTab(event, 'mycompanies')">my companies</button>
+        <button class="tablinks" id="commonapptab" onclick="openTab(event, 'commonapp')">commonapp</button>
+        <button class="tablinks" id="searchtab" onclick="openTab(event, 'companysearch')">company search</button>
+        <button class="tablinks" id="abouttab" onclick="openTab(event, 'about')">about</button>
       </div>
     </div>
 
@@ -80,13 +80,13 @@
           <th>remove</th>
         </tr>
         <tr id="microsoftrow">
-          <td>microsoft</td>
+          <td><a id="openmicrosoftapp">microsoft</a></td>
           <td>month/day</td>
           <td>in progress</td>
           <td><button type="button" class="prettybutton" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
         <tr id="ncrrow">
-          <td>ncr</td>
+          <td><a id="openncrapp">ncr</a></td>
           <td>month/day</td>
           <td>submitted</td>
           <td><button type="button" class="prettybutton" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
@@ -110,8 +110,8 @@
       <h3>my companies</h3>
       <p>here's a list of companies i want to apply for</p>
       <div class="verticaltab">
-        <button class="companytabs" onClick="openVerticalTab(event, 'microsoft')" id="verticalDefaultOpen">microsoft</button>
-        <button class="companytabs" onClick="openVerticalTab(event, 'ncr')">ncr</button>
+        <button class="companytabs" onClick="openVerticalTab(event, 'microsoft')" id="microsofttab">microsoft</button>
+        <button class="companytabs" onClick="openVerticalTab(event, 'ncr')" id="ncrtab">ncr</button>
       </div>
       <div id="microsoft" class="verticaltabcontent">
         <p>microsoft application (scrape additional questions from web)</p>
@@ -317,6 +317,30 @@
         </tr>
       </table>
       <p><input type="submit" value="add"></p>
+
+      <!-- Trigger/Open The Modal -->
+      <p><button id="addcompanies" class="prettybutton"><i class="fa fa-plus" aria-hidden="true"></i>  add new</button></p>
+
+      <!-- The Modal -->
+      <div id="addmodal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
+            <label for="jobtitle">job title:</label><br>
+            <input type="text" name="jobtitle" id="jobtitle" required><br>
+            <label for="employer">employer:</label><br>
+            <input type="text" name="employer" id="employer" required><br>
+            <label for="startdate">start date:</label><br>
+            <input type="date" name="startdate" id="startdate" required><br>
+            <label for="enddate">end date:</label><br>
+            <input type="date" name="enddate" id="enddate" required>
+            <input type="submit" value="submit" onsubmit="makeJob('jobtitle', 'employer', 'startdate', 'enddate')">
+
+          </p>
+        </div>
+      </div>
     </div>
 
     <div id="about" class="tabcontent">

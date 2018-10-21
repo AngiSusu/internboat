@@ -34,6 +34,14 @@ body {
   /*font-family: Arial, Helvetica, sans-serif;*/
 }
 
+a {
+  color: rgb(78, 218, 97);
+}
+
+a:hover {
+  color: #4CAF50;
+}
+
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -268,6 +276,7 @@ input[type=submit]:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    animation: fadeEffect 0.6s; /* Fading effect takes 1 second */
 }
 
 /* Modal Content/Box */
@@ -339,7 +348,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-.trash {
+.prettybutton {
     background-color: #f1f1f1;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -350,7 +359,7 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
-.trash:hover {
+.prettybutton:hover {
     background-color: #ddd;
 }
 </style>
@@ -388,13 +397,13 @@ tr:nth-child(even) {
           <td>microsoft</td>
           <td>month/day</td>
           <td>in progress</td>
-          <td><button type="button" class="trash" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+          <td><button type="button" class="prettybutton" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
         <tr id="ncrrow">
           <td>ncr</td>
           <td>month/day</td>
           <td>submitted</td>
-          <td><button type="button" class="trash" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+          <td><button type="button" class="prettybutton" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
       </table></p>
       <!-- The Modal -->
@@ -482,7 +491,7 @@ tr:nth-child(even) {
           </div>
 
           <!-- Trigger/Open The Modal -->
-          <p><button id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>  add new</button></p>
+          <p><button id="myBtn" class="prettybutton"><i class="fa fa-plus" aria-hidden="true"></i>  add new</button></p>
 
           <!-- The Modal -->
           <div id="myModal" class="modal">
@@ -593,7 +602,7 @@ tr:nth-child(even) {
       <h3>company search</h3>
       <p>here's where i look for companies i want to apply for</p>
       <p><input type="text" placeholder="search companies by name">
-      <button type="submit"><i class="fa fa-search"></i></button></p>
+      <button type="submit" class="prettybutton"><i class="fa fa-search"></i></button></p>
       <p><table>
         <tr>
           <th><input type="checkbox" name="check" id="selectall" onclick="selectAll()"/>    &nbsp;   </th>
@@ -602,19 +611,19 @@ tr:nth-child(even) {
           <th>website</th>
         </tr>
         <tr>
-          <td><input type="checkbox" name="check" id="sel1"/>    &nbsp;   </td>
+          <td><input type="checkbox" name="check" id="sel1" onclick="checkSelect(this)"/>    &nbsp;   </td>
           <td>microsoft</td>
           <td>redmond, wa</td>
           <td><a href="https://www.microsoft.com/en-us">https://www.microsoft.com/en-us</a></td>
         </tr>
         <tr>
-          <td><input type="checkbox" name="check" id="sel2"/>    &nbsp;   </td>
+          <td><input type="checkbox" name="check" id="sel2" onclick="checkSelect(this)"/>    &nbsp;   </td>
           <td>ncr</td>
           <td>atlanta, ga</td>
           <td><a href="https://www.ncr.com/">https://www.ncr.com/</a></td>
         </tr>
         <tr>
-          <td><input type="checkbox" name="check" id="sel3"/>    &nbsp;   </td>
+          <td><input type="checkbox" name="check" id="sel3" onclick="checkSelect(this)"/>    &nbsp;   </td>
           <td>american express</td>
           <td>new york city, ny</td>
           <td><a href="https://www.americanexpress.com/">https://www.americanexpress.com/</a></td>
@@ -795,6 +804,12 @@ tr:nth-child(even) {
         for (i = 0; i < checkboxes.length; i++) {
           checkboxes[i].checked = false;
         }
+      }
+    }
+
+    function checkSelect(checkbox) {
+      if (!checkbox.checked) {
+        document.getElementById("selectall").checked = false;
       }
     }
     </script>

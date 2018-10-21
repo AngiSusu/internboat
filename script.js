@@ -22,7 +22,7 @@ $(document).ready(function(){
     e.preventDefault();
     $('#registerModal').modal('hide');
     $('#messageModalLabel').html(spanText('<i class="fa fa-cog fa-spin"></i>', ['center', 'info']));
-    $('#messageModal').modal('show');
+    //$('#messageModal').modal('show');
     var data = {
       email: $('#registerEmail').val(), //get the email from Form
       firstName: $('#registerFirstName').val(), // get firstName
@@ -39,9 +39,11 @@ $(document).ready(function(){
         firebase.auth()
           .createUserWithEmailAndPassword(data.email, passwords.password)
           .then(function(user) {
+            window.location.href = "index.html";
             return user.updateProfile({
               displayName: data.firstName + ' ' + data.lastName
             })
+            
           })
           .then(function(user){
             //now user is needed to be logged in to save data
@@ -54,6 +56,7 @@ $(document).ready(function(){
             $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
 
             $('#messageModal').modal('hide');
+            
           })
           .catch(function(error){
             console.log("Error creating user:", error);
@@ -71,7 +74,7 @@ $(document).ready(function(){
     e.preventDefault();
     $('#loginModal').modal('hide');
     $('#messageModalLabel').html(spanText('<i class="fa fa-cog fa-spin"></i>', ['center', 'info']));
-    $('#messageModal').modal('show');
+    //$('#messageModal').modal('show');
 
     if( $('#loginEmail').val() != '' && $('#loginPassword').val() != '' ){
       //login the user
@@ -84,17 +87,20 @@ $(document).ready(function(){
           auth = authData;
           $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
           $('#messageModal').modal('hide');
+          window.location.href = "index.html";
         })
         .catch(function(error) {
           console.log("Login Failed!", error);
           $('#messageModalLabel').html(spanText('ERROR: '+error.code, ['danger']))
         });
+        
     }
   });
 
   $('#logout').on('click', function(e) {
     e.preventDefault();
-    firebase.auth().signOut()
+    firebase.auth().signOut();
+      window.location.href = "register.html";
   });
 
   //save contact

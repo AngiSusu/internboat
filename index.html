@@ -25,9 +25,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>internboat</title> <!--css goes in the head-->
         <link rel="stylesheet" href="style.css"/>
-<body>
-
-</body>
 <style>
 body {
   margin: 0;
@@ -363,11 +360,58 @@ tr:nth-child(even) {
     background-color: #ddd;
 }
 </style>
+
+
+    <link rel="stylesheet" href="style.css"/>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
+<body class="auth-false">
     <!-- Add icon library -->
     <!-- https://fontawesome.com/v4.7.0/icons/ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--CONTAINER-->
+    <div>
+    <header class="clearfix">
+      <div class="userAuth unauthenticated pull-right">
+        <span class="user-info">
+          <img src="./user.svg" alt="hiyyo" class="rounded-circle">
+        </span>
+        <button type="button" class="btn btn-info" id="logout">Logout</button>
+      </div>
+        </header>
+        <main class="authenticated">
+      <center>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">Add Contact</button>
+      </center>
+      <div id="contacts"></div>
+    </main>
+    </div>
+
+
+
+
+
+
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -386,7 +430,7 @@ tr:nth-child(even) {
     <div id="home" class="tabcontent">
       <h3>home</h3>
       <p>welcome to internboat!</p>
-      <p><table>
+      <table>
         <tr>
           <th>company</th>
           <th>deadline</th>
@@ -405,6 +449,7 @@ tr:nth-child(even) {
           <td>submitted</td>
           <td><button type="button" class="prettybutton" onclick="confirmDelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>
+
       </table></p>
       <!-- The Modal -->
       <div id="confirmmodal" class="modal">
@@ -422,20 +467,20 @@ tr:nth-child(even) {
     <div id="mycompanies" class="tabcontent">
       <h3>my companies</h3>
       <p>here's a list of companies i want to apply for</p>
-      <p><div class="verticaltab">
+      <div class="verticaltab">
         <button class="companytabs" onClick="openVerticalTab(event, 'microsoft')" id="verticalDefaultOpen">microsoft</button>
         <button class="companytabs" onClick="openVerticalTab(event, 'ncr')">ncr</button>
-      </div></p>
-      <p><div id="microsoft" class="verticaltabcontent">
+      </div>
+      <div id="microsoft" class="verticaltabcontent">
         <p>microsoft application (scrape additional questions from web)</p>
-      </div></p>
-      <p><div id="ncr" class="verticaltabcontent">
+      </div>
+      <div id="ncr" class="verticaltabcontent">
         <p>ncr application (scrape additional questions from web)</p>
         <p>the purpose of this extremely long paragraph is to test the capabilities of this div to contain all the text in a easily readable fashion. things such as wrap text and overflow will be tested. it'd be really bad if the text just ran off the side of the screen, or if it went so far down and you weren't able to scroll to see all of it. did you know? i'm writing this at 2 in the afternoon, and i haven't slept since yesterday at 12 in the afternoon. on its own, that doesn't seem too bad, but since i'm also sick and tired (OF HEARING ALL THESE PEOPLE TALK ABOUT) from practicing so long for dtj every night, i'm surprised i've managed to stay awake this long. actually, on the contrary, i'm feeling pretty alive and am pretty proud of the things i've accomplished on this project so far. webdev can be frustrating, but it's also pretty fun, you know? i remember doing a website for my first hackathon too, and at that time i was really new to this whole cs stuff, so i wasn't able to contribute much. now, i've been able to do a lot more, so i'm really happy with that. also, have you noticed how cute angi's icon is? and the name "internboat"? angi always comes up with great ideas. i hope she was able to rest up for the past few hours! ok, i think this paragraph is long enough now.
         </p>
         <p>ok, just kidding, apparently it is NOT long enough, and these boxes can hold a lot of space. but you know, on the off chance that some annoying company forces you to write an entire research paper just to apply to their position, i guess this testing would still be useful. by the way, if you guys bother reading this after i commit this huge writeup to github, i hope you know i'm really glad we got to do this hackathon together! i love hanging out with you all and having fun and all learning together! even if i have a hard time showing it. angi: you are basically the leader of this group. you have great ideas and lots of skill, and always have a positive attitude! michelle and jianing: don't worry about not knowing everything to do at your first hackathon, it was the same for me! as long as you enjoy the experience, then i'm glad! i really enjoy this chance to be able to hang out with you guys :D mmmmmmmmmmmmm ok these feelings are too mushy to be published on my "professional" github so i will end here.
         </p>
-      </div></p>
+      </div>
     </div>
 
     <div id="commonapp" class="tabcontent">
@@ -443,7 +488,7 @@ tr:nth-child(even) {
       <p>here's the application that is common for all internships</p>
       <button class="accordion">profile</button>
         <div class="panel">
-          <p>
+
             <form>
               <div class="column1">
                 <label for="firstname">first name:</label><br>
@@ -476,7 +521,7 @@ tr:nth-child(even) {
                 <input type="text" name="zipcode" id="zipcode" required><br>
               </div>
             </form>
-          </p>
+
         </div>
 
         <button class="accordion" id="experience">experience</button>
@@ -547,7 +592,7 @@ tr:nth-child(even) {
 
         <button class="accordion">websites</button>
         <div class="panel">
-          <p>
+
             <div class="column1">
               <label for="linkedin">linkedin:</label><br>
               <input type="text" name="linkedin" id="linkedin"><br>
@@ -559,7 +604,7 @@ tr:nth-child(even) {
               <label for="personalwebsite">personal website:</label><br>
               <input type="text" name="personalwebsite" id="personalwebsite"><br>
             </div>
-          </p>
+
         </div>
 
         <button class="accordion">voluntary self-identification of disability</button>
@@ -602,8 +647,13 @@ tr:nth-child(even) {
       <h3>company search</h3>
       <p>here's where i look for companies i want to apply for</p>
       <p><input type="text" placeholder="search companies by name">
+<<<<<<< HEAD
       <button type="submit" class="prettybutton"><i class="fa fa-search"></i></button></p>
       <p><table>
+=======
+      <button type="submit"><i class="fa fa-search"></i></button></p>
+      <table>
+>>>>>>> 57e83d7bc1eb8176aa633c9f86e8925fc9349ca9
         <tr>
           <th><input type="checkbox" name="check" id="selectall" onclick="selectAll()"/>    &nbsp;   </th>
           <th>company</th>
@@ -628,7 +678,7 @@ tr:nth-child(even) {
           <td>new york city, ny</td>
           <td><a href="https://www.americanexpress.com/">https://www.americanexpress.com/</a></td>
         </tr>
-      </table></p>
+      </table>
       <p><input type="submit" value="add"></p>
     </div>
 
@@ -813,5 +863,11 @@ tr:nth-child(even) {
       }
     }
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+  <!-- Contacts Store JavaScript -->
+  <script src="./script.js"></script>
 </body>
 </html>

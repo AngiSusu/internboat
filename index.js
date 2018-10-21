@@ -36,6 +36,17 @@ function openTab(evt, tabName) {
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
+
+  // accordion should be closed when commonapp tab is open
+  if (tabName == "commonapp") {
+    var acc = document.getElementsByClassName("accordion");
+    for (i = 0; i < acc.length; i++) {
+      if(acc[i].classList.contains("activeaccordion")){
+        acc[i].classList.remove("activeaccordion");
+        acc[i].nextElementSibling.style.maxHeight = null;
+      }
+    }
+  }
 }
 
 
